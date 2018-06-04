@@ -10,6 +10,13 @@ import UIKit
 
 class PlayViewController: UIViewController {
     public var recordedAudioUrl: URL!
+    @IBOutlet weak var buttonSlow: UIButton!
+    @IBOutlet weak var buttonFast: UIButton!
+    @IBOutlet weak var buttonHighPitch: UIButton!
+    @IBOutlet weak var buttonLowPitch: UIButton!
+    @IBOutlet weak var buttonEcho: UIButton!
+    @IBOutlet weak var buttonReverb: UIButton!
+    @IBOutlet weak var buttonStop: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,15 +29,9 @@ class PlayViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func playSoundAction(_ sender: Any) {
     }
-    */
-
+    
+    @IBAction func stopSoundAction(_ sender: Any) {
+    }
 }
