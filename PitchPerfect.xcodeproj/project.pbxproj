@@ -181,12 +181,12 @@
 			children = (
 				74C844D720C5524700300367 /* Images */,
 				74C844A920C53FDA00300367 /* AppDelegate.swift */,
-				74C844AB20C53FDA00300367 /* RecordViewController.swift */,
-				74C844AD20C53FDA00300367 /* Main.storyboard */,
 				74C844B020C53FDD00300367 /* Assets.xcassets */,
-				74C844B220C53FDD00300367 /* LaunchScreen.storyboard */,
 				74C844B520C53FDD00300367 /* Info.plist */,
+				74C844B220C53FDD00300367 /* LaunchScreen.storyboard */,
+				74C844AD20C53FDA00300367 /* Main.storyboard */,
 				74C8452820C5568E00300367 /* PlayViewController.swift */,
+				74C844AB20C53FDA00300367 /* RecordViewController.swift */,
 			);
 			path = PitchPerfect;
 			sourceTree = "<group>";
