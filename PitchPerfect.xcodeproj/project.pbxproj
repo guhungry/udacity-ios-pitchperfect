@@ -57,6 +57,7 @@
 		74C8452920C5568E00300367 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C8452820C5568E00300367 /* PlayViewController.swift */; };
 		CC0AB63A20C67E2B00524B4C /* RecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0AB63920C67E2B00524B4C /* RecordViewModel.swift */; };
 		CC0AB63C20C680C400524B4C /* RecordViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0AB63B20C680C400524B4C /* RecordViewModelTests.swift */; };
+		CC0AB63F20C6891A00524B4C /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0AB63E20C6891A00524B4C /* Router.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +134,7 @@
 		74C8452820C5568E00300367 /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 		CC0AB63920C67E2B00524B4C /* RecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModel.swift; sourceTree = "<group>"; };
 		CC0AB63B20C680C400524B4C /* RecordViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModelTests.swift; sourceTree = "<group>"; };
+		CC0AB63E20C6891A00524B4C /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 		74C844A820C53FDA00300367 /* PitchPerfect */ = {
 			isa = PBXGroup;
 			children = (
+				CC0AB63D20C688DE00524B4C /* Router */,
 				CC99537C20C5BA0600E62A0B /* ViewModels */,
 				74C844D720C5524700300367 /* Images */,
 				74C844A920C53FDA00300367 /* AppDelegate.swift */,
@@ -260,6 +263,14 @@
 				74C844F120C5535000300367 /* Stop@3x.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		CC0AB63D20C688DE00524B4C /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				CC0AB63E20C6891A00524B4C /* Router.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		CC99537C20C5BA0600E62A0B /* ViewModels */ = {
@@ -444,6 +455,7 @@
 				74C844AC20C53FDA00300367 /* RecordViewController.swift in Sources */,
 				74C8452920C5568E00300367 /* PlayViewController.swift in Sources */,
 				CC0AB63A20C67E2B00524B4C /* RecordViewModel.swift in Sources */,
+				CC0AB63F20C6891A00524B4C /* Router.swift in Sources */,
 				74C844AA20C53FDA00300367 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
