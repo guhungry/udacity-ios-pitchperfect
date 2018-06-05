@@ -9,7 +9,7 @@
 import UIKit
 
 class PlayViewController: UIViewController {
-    public var recordedAudioUrl: URL!
+    public var viewModel: PlayBackViewModel!
     @IBOutlet weak var buttonSlow: UIButton!
     @IBOutlet weak var buttonFast: UIButton!
     @IBOutlet weak var buttonHighPitch: UIButton!

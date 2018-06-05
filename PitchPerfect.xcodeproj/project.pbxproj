@@ -58,6 +58,8 @@
 		CC0AB63A20C67E2B00524B4C /* RecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0AB63920C67E2B00524B4C /* RecordViewModel.swift */; };
 		CC0AB63C20C680C400524B4C /* RecordViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0AB63B20C680C400524B4C /* RecordViewModelTests.swift */; };
 		CC0AB63F20C6891A00524B4C /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0AB63E20C6891A00524B4C /* Router.swift */; };
+		CC0AB64120C6900D00524B4C /* RecordProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0AB64020C6900D00524B4C /* RecordProtocols.swift */; };
+		CC99537E20C5BA3F00E62A0B /* PlayBackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC99537D20C5BA3F00E62A0B /* PlayBackViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +137,8 @@
 		CC0AB63920C67E2B00524B4C /* RecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModel.swift; sourceTree = "<group>"; };
 		CC0AB63B20C680C400524B4C /* RecordViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModelTests.swift; sourceTree = "<group>"; };
 		CC0AB63E20C6891A00524B4C /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		CC0AB64020C6900D00524B4C /* RecordProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordProtocols.swift; sourceTree = "<group>"; };
+		CC99537D20C5BA3F00E62A0B /* PlayBackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayBackViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +199,7 @@
 				74C844AD20C53FDA00300367 /* Main.storyboard */,
 				74C8452820C5568E00300367 /* PlayViewController.swift */,
 				74C844AB20C53FDA00300367 /* RecordViewController.swift */,
+				CC0AB64020C6900D00524B4C /* RecordProtocols.swift */,
 			);
 			path = PitchPerfect;
 			sourceTree = "<group>";
@@ -276,6 +281,7 @@
 		CC99537C20C5BA0600E62A0B /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				CC99537D20C5BA3F00E62A0B /* PlayBackViewModel.swift */,
 				CC0AB63920C67E2B00524B4C /* RecordViewModel.swift */,
 			);
 			path = ViewModels;
@@ -453,6 +459,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				74C844AC20C53FDA00300367 /* RecordViewController.swift in Sources */,
+				CC99537E20C5BA3F00E62A0B /* PlayBackViewModel.swift in Sources */,
+				CC0AB64120C6900D00524B4C /* RecordProtocols.swift in Sources */,
 				74C8452920C5568E00300367 /* PlayViewController.swift in Sources */,
 				CC0AB63A20C67E2B00524B4C /* RecordViewModel.swift in Sources */,
 				CC0AB63F20C6891A00524B4C /* Router.swift in Sources */,

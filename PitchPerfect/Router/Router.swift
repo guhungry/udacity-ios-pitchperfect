@@ -20,6 +20,14 @@ class Router: NSObject {
         return UIViewController()
     }
     
+    class func showPlayScreen(from: UIViewController, forUrl url: URL) {
+        if let view = mainStoryboard().instantiateViewController(withIdentifier: "PlayScreen") as? PlayViewController {
+            view.viewModel = PlayBackViewModel(soundUrl: url)
+            
+            pushScreen(from: from, to: view)
+        }
+    }
+    
     private class func pushScreen(from: UIViewController, to: UIViewController) {
         from.navigationController?.pushViewController(to, animated: true)
     }

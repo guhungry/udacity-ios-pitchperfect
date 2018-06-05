@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RecordViewController: UIViewController {
+class RecordViewController: UIViewController, RecordViewControllerProtocol {
     public var viewModel: RecordViewModel = RecordViewModel()
     @IBOutlet weak var btnRecord: UIButton!
     @IBOutlet weak var lblRecording: UILabel!
@@ -41,10 +41,7 @@ class RecordViewController: UIViewController {
         btnStop.isEnabled = viewModel.stopButtonEnabled()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "stopRecording") {
-            let target = segue.destination as! PlayViewController
-            target.viewModel = PlayBackViewModel(soundUrl: sender as! URL)
-        }
+    func onSaveSuccess(_ url: URL) {
+        Router.showPlayScreen(from: self, forUrl: url)
     }
 }

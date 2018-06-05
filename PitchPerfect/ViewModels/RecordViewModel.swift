@@ -11,6 +11,7 @@ import AVFoundation
 
 class RecordViewModel: NSObject, AVAudioRecorderDelegate {
     public var isRecording: Bool = false
+    public var view: RecordViewControllerProtocol!
     private var audioRecorder: AVAudioRecorder!
     
     func recordingLabel() -> String {
@@ -55,7 +56,7 @@ class RecordViewModel: NSObject, AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if (flag) {
             print("Record Success")
-            // performSegue(withIdentifier: "stopRecording", sender: audioRecorder.url)
+            view.onSaveSuccess(audioRecorder.url)
         } else {
             print("Recording Failed")
         }
