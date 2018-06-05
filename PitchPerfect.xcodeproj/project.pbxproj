@@ -55,6 +55,8 @@
 		74C8452620C5535200300367 /* Record@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74C844FE20C5535200300367 /* Record@3x.png */; };
 		74C8452720C5535200300367 /* Reverb@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74C844FF20C5535200300367 /* Reverb@3x.png */; };
 		74C8452920C5568E00300367 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C8452820C5568E00300367 /* PlayViewController.swift */; };
+		CC0AB63A20C67E2B00524B4C /* RecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0AB63920C67E2B00524B4C /* RecordViewModel.swift */; };
+		CC0AB63C20C680C400524B4C /* RecordViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0AB63B20C680C400524B4C /* RecordViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +131,8 @@
 		74C844FE20C5535200300367 /* Record@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Record@3x.png"; sourceTree = "<group>"; };
 		74C844FF20C5535200300367 /* Reverb@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reverb@3x.png"; sourceTree = "<group>"; };
 		74C8452820C5568E00300367 /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
+		CC0AB63920C67E2B00524B4C /* RecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModel.swift; sourceTree = "<group>"; };
+		CC0AB63B20C680C400524B4C /* RecordViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +183,7 @@
 		74C844A820C53FDA00300367 /* PitchPerfect */ = {
 			isa = PBXGroup;
 			children = (
+				CC99537C20C5BA0600E62A0B /* ViewModels */,
 				74C844D720C5524700300367 /* Images */,
 				74C844A920C53FDA00300367 /* AppDelegate.swift */,
 				74C844B020C53FDD00300367 /* Assets.xcassets */,
@@ -195,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				74C844BE20C53FDD00300367 /* PitchPerfectTests.swift */,
+				CC0AB63B20C680C400524B4C /* RecordViewModelTests.swift */,
 				74C844C020C53FDD00300367 /* Info.plist */,
 			);
 			path = PitchPerfectTests;
@@ -254,6 +260,14 @@
 				74C844F120C5535000300367 /* Stop@3x.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		CC99537C20C5BA0600E62A0B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				CC0AB63920C67E2B00524B4C /* RecordViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -429,6 +443,7 @@
 			files = (
 				74C844AC20C53FDA00300367 /* RecordViewController.swift in Sources */,
 				74C8452920C5568E00300367 /* PlayViewController.swift in Sources */,
+				CC0AB63A20C67E2B00524B4C /* RecordViewModel.swift in Sources */,
 				74C844AA20C53FDA00300367 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,6 +453,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74C844BF20C53FDD00300367 /* PitchPerfectTests.swift in Sources */,
+				CC0AB63C20C680C400524B4C /* RecordViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

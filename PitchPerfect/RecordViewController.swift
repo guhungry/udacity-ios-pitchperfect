@@ -10,10 +10,10 @@ import UIKit
 import AVFoundation
 
 class RecordViewController: UIViewController, AVAudioRecorderDelegate {
+    public var viewModel: RecordViewModel = RecordViewModel()
     @IBOutlet weak var btnRecord: UIButton!
     @IBOutlet weak var lblRecording: UILabel!
     @IBOutlet weak var btnStop: UIButton!
-    private var isRecording = false
     private var audioRecorder: AVAudioRecorder!
     
     override func viewDidLoad() {
@@ -28,7 +28,7 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate {
     }
 
     @IBAction func recordAction(_ sender: Any) {
-        isRecording = true
+        viewModel.isRecording = true
         updateView()
         
         let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)[0] as String
@@ -47,7 +47,7 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate {
     }
     
     @IBAction func stopAction(_ sender: Any) {
-        isRecording = false
+        viewModel.isRecording = false
         updateView()
         
         audioRecorder.stop()
@@ -55,14 +55,10 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate {
         try! session.setActive(false)
     }
     
-    private func recordingLabel() -> String {
-        return isRecording ? "Recording in progress" : "Tap to Record"
-    }
-    
     private func updateView() {
-        lblRecording.text = recordingLabel()
-        btnRecord.isEnabled = !isRecording
-        btnStop.isEnabled = isRecording
+        lblRecording.text = viewModel.recordingLabel()
+        btnRecord.isEnabled = viewModel.recordButtonEnabled()
+        btnStop.isEnabled = viewModel.stopButtonEnabled()
     }
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
@@ -76,7 +72,7 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "stopRecording") {
             let target = segue.destination as! PlayViewController
-            target.recordedAudioUrl = sender as? URL
+            target.viewModel = PlayBackViewModel(soundUrl: sender as! URL)
         }
     }
 }
