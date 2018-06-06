@@ -10,4 +10,5 @@ import Foundation
 
 protocol RecordViewControllerProtocol {
     func onSaveSuccess(_ url: URL)
+    func updateView()
 }

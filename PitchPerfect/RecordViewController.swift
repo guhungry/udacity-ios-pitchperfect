@@ -14,8 +14,8 @@ class RecordViewController: UIViewController, RecordViewControllerProtocol {
     @IBOutlet weak var lblRecording: UILabel!
     @IBOutlet weak var btnStop: UIButton!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         updateView()
     }
@@ -27,15 +27,13 @@ class RecordViewController: UIViewController, RecordViewControllerProtocol {
 
     @IBAction func recordAction(_ sender: Any) {
         viewModel.startRecordAudio()
-        updateView()
     }
     
     @IBAction func stopAction(_ sender: Any) {
         viewModel.stopRecordAudio()
-        updateView()
     }
     
-    private func updateView() {
+    func updateView() {
         lblRecording.text = viewModel.recordingLabel()
         btnRecord.isEnabled = viewModel.recordButtonEnabled()
         btnStop.isEnabled = viewModel.stopButtonEnabled()
