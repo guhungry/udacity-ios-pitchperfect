@@ -55,7 +55,6 @@ class RecordViewModel: NSObject, AVAudioRecorderDelegate {
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if (flag) {
-            print("Record Success")
             view.onSaveSuccess(audioRecorder.url)
         } else {
             print("Recording Failed")

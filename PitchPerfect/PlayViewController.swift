@@ -21,7 +21,7 @@ class PlayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        viewModel.prepareAudio()
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,9 +29,26 @@ class PlayViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func playSoundAction(_ sender: Any) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateView()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        stopSoundAction(buttonStop)
+    }
+    
+    @IBAction func playSoundAction(_ sender: UIButton) {
+        viewModel.playSound(effect: PlayBackViewModel.AudioEffect(rawValue: sender.tag)!)
+        updateView()
     }
     
     @IBAction func stopSoundAction(_ sender: Any) {
+        updateView()
+    }
+    
+    func updateView() {
+        buttonStop.isEnabled = viewModel.stopButtonEnabled()
     }
 }
