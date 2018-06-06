@@ -11,8 +11,13 @@ import AVFoundation
 
 class PlayBackViewModel: NSObject, AVAudioPlayerDelegate {
     public enum AudioEffect: Int { case slow = 0, fast, highPitch, lowPitch, echo, reverb }
-    public var isPlaying: Bool = false
+    public var isPlaying: Bool = false {
+        didSet {
+            view.updateView()
+        }
+    }
     public var soundUrl: URL!
+    public var view: PlayViewControllerProtocol!
     var audioFile: AVAudioFile!
     var audioEngine: AVAudioEngine!
     var audioPlayerNode: AVAudioPlayerNode!

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlayViewController: UIViewController {
+class PlayViewController: UIViewController, PlayViewControllerProtocol {
     public var viewModel: PlayBackViewModel!
     @IBOutlet weak var buttonSlow: UIButton!
     @IBOutlet weak var buttonFast: UIButton!
@@ -41,11 +41,10 @@ class PlayViewController: UIViewController {
     
     @IBAction func playSoundAction(_ sender: UIButton) {
         viewModel.playSound(effect: PlayBackViewModel.AudioEffect(rawValue: sender.tag)!)
-        updateView()
     }
     
     @IBAction func stopSoundAction(_ sender: Any) {
-        updateView()
+        viewModel.stopAudio()
     }
     
     func updateView() {
