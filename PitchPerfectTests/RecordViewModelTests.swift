@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Hamcrest
 
 @testable import PitchPerfect
 
@@ -25,42 +26,42 @@ class RecordViewModelTests: XCTestCase {
     }
     
     func testIsRecording_ShouldBeFalse_AsDefaultValue() {
-        XCTAssertFalse(sut.isRecording)
+        assertThat(sut.isRecording == false)
     }
     
     func testRecordLabel_ShouldBeTabToRecord_WhenIsRecordingIsFalse() {
         sut.isRecording = false
         
-        XCTAssertEqual(sut.recordingLabel(), "Tap to Record")
+        assertThat(sut.recordingLabel(), equalTo("Tap to Record"))
     }
     
     func testRecordLabel_ShouldBeRecordingInProgress_WhenIsRecordingIsTrue() {
         sut.isRecording = true
         
-        XCTAssertEqual(sut.recordingLabel(), "Recording in progress")
+        assertThat(sut.recordingLabel(), equalTo("Recording in progress"))
     }
     
     func testRecordButtonEnabled_ShouldBeTrue_WhenIsRecordingIsFalse() {
         sut.isRecording = false
         
-        XCTAssertTrue(sut.recordButtonEnabled())
+        assertThat(sut.recordButtonEnabled() == true)
     }
     
     func testRecordButtonEnabled_ShouldBeFalse_WhenIsRecordingIsTrue() {
         sut.isRecording = true
         
-        XCTAssertFalse(sut.recordButtonEnabled())
+        assertThat(sut.recordButtonEnabled() == false)
     }
     
     func testStopButtonEnabled_ShouldBeFalse_WhenIsRecordingIsFalse() {
         sut.isRecording = false
         
-        XCTAssertFalse(sut.stopButtonEnabled())
+        assertThat(sut.stopButtonEnabled() == false)
     }
     
     func testStopButtonEnabled_ShouldBeTrue_WhenIsRecordingIsTrue() {
         sut.isRecording = true
         
-        XCTAssertTrue(sut.stopButtonEnabled())
+        assertThat(sut.stopButtonEnabled() == true)
     }
 }
