@@ -42,16 +42,13 @@ extension PlayBackViewModel {
         changeReverb.loadFactoryPreset(.cathedral)
         changeReverb.wetDryMix = 50
         audioEngine.attach(changeReverb)
-        
-        if echo && reverb {
-            connectAudioNodes(audioPlayerNode, changePitchRate, changeEcho, changeReverb, audioEngine.outputNode)
-        } else if echo {
-            connectAudioNodes(audioPlayerNode, changePitchRate, changeEcho, audioEngine.outputNode)
-        } else if reverb {
-            connectAudioNodes(audioPlayerNode, changePitchRate, changeEcho, audioEngine.outputNode)
-        } else {
-            connectAudioNodes(audioPlayerNode, changePitchRate, audioEngine.outputNode)
-        }
+
+        var nodes: [AVAudioNode] = [audioPlayerNode, changePitchRate]
+        if echo { nodes.append(changeEcho) }
+        if reverb { nodes.append(changeReverb) }
+        nodes.append(audioEngine.outputNode)
+
+        connectAudioNodes(nodes)
         
         audioPlayerNode.stop()
         audioPlayerNode.scheduleFile(audioFile, at: nil) {
@@ -90,11 +87,15 @@ extension PlayBackViewModel {
             audioEngine.reset()
         }
     }
-    
-    func connectAudioNodes(_ nodes: AVAudioNode...) {
+
+    func connectAudioNodes(_ nodes: [AVAudioNode]) {
         for i in 0 ..< nodes.count - 1 {
             audioEngine.connect(nodes[i], to: nodes[i + 1], format: audioFile.processingFormat)
         }
+    }
+
+    func connectAudioNodes(_ nodes: AVAudioNode...) {
+        connectAudioNodes(nodes)
     }
 
     // MARK: Audio File Information Functions
