@@ -23,6 +23,7 @@ extension PlayBackViewModel {
         audioEngine = AVAudioEngine()
         audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attach(audioPlayerNode)
+        var nodes: [AVAudioNode] = [audioPlayerNode]
         
         let changePitchRate = AVAudioUnitTimePitch()
         if let pitch = pitch {
@@ -32,15 +33,16 @@ extension PlayBackViewModel {
         if let rate = rate {
             changePitchRate.rate = rate
         }
-        audioEngine.attach(changePitchRate)
 
-        var nodes: [AVAudioNode] = [audioPlayerNode, changePitchRate]
+        if (rate != nil ||  pitch != nil) {
+            audioEngine.attach(changePitchRate)
+            nodes.append(changePitchRate)
+        }
 
         if echo {
             let changeEcho = AVAudioUnitDistortion()
             changeEcho.loadFactoryPreset(.multiEcho1)
             audioEngine.attach(changeEcho)
-
             nodes.append(changeEcho)
         }
 
@@ -49,7 +51,6 @@ extension PlayBackViewModel {
             changeReverb.loadFactoryPreset(.cathedral)
             changeReverb.wetDryMix = 50
             audioEngine.attach(changeReverb)
-
             nodes.append(changeReverb)
         }
 
