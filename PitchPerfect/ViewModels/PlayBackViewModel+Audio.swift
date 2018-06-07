@@ -58,12 +58,10 @@ extension PlayBackViewModel {
         
         audioPlayerNode.stop()
         audioPlayerNode.scheduleFile(audioFile, at: nil) {
-            var delay: Double = 0
             if let lastRenderTime = self.audioPlayerNode.lastRenderTime, let playerTime = self.audioPlayerNode.playerTime(forNodeTime: lastRenderTime) {
+                var delay = Double(self.audioFile.length - playerTime.sampleTime) / self.audioFile.processingFormat.sampleRate
                 if let rate = rate {
-                    delay = Double(self.audioFile.length - playerTime.sampleTime) / self.audioFile.processingFormat.sampleRate / Double(rate)
-                } else {
-                    delay = Double(self.audioFile.length - playerTime.sampleTime) / self.audioFile.processingFormat.sampleRate
+                    delay /= Double(rate)
                 }
                 
                 self.stopTimer = Timer(timeInterval: delay, target: self, selector: #selector(PlayBackViewModel.stopAudio), userInfo: nil, repeats: false)
