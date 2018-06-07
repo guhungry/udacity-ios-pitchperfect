@@ -58,8 +58,8 @@ extension PlayBackViewModel {
         
         audioPlayerNode.stop()
         audioPlayerNode.scheduleFile(audioFile, at: nil) {
-            if let lastRenderTime = self.audioPlayerNode.lastRenderTime, let playerTime = self.audioPlayerNode.playerTime(forNodeTime: lastRenderTime) {
-                var delay = Double(self.audioFile.length - playerTime.sampleTime) / self.audioFile.processingFormat.sampleRate
+            if let lastRenderTime = self.lastRenderTime(), let playerTime = self.playerTime(lastRenderTime) {
+                var delay = Double(self.fileLength() - playerTime.sampleTime) / self.sampleRate()
                 if let rate = rate {
                     delay /= Double(rate)
                 }
@@ -98,5 +98,22 @@ extension PlayBackViewModel {
         for i in 0 ..< nodes.count - 1 {
             audioEngine.connect(nodes[i], to: nodes[i + 1], format: audioFile.processingFormat)
         }
+    }
+
+    // MARK: Audio File Information Functions
+    func lastRenderTime() -> AVAudioTime? {
+        return audioPlayerNode.lastRenderTime
+    }
+
+    func playerTime(_ lastRenderTime: AVAudioTime) -> AVAudioTime? {
+        return audioPlayerNode.playerTime(forNodeTime: lastRenderTime)
+    }
+
+    func fileLength() -> AVAudioFramePosition {
+        return audioFile.length
+    }
+
+    func sampleRate() -> Double {
+        return audioFile.processingFormat.sampleRate
     }
 }
