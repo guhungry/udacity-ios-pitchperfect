@@ -33,19 +33,26 @@ extension PlayBackViewModel {
             changePitchRate.rate = rate
         }
         audioEngine.attach(changePitchRate)
-        
-        let changeEcho = AVAudioUnitDistortion()
-        changeEcho.loadFactoryPreset(.multiEcho1)
-        audioEngine.attach(changeEcho)
-        
-        let changeReverb = AVAudioUnitReverb()
-        changeReverb.loadFactoryPreset(.cathedral)
-        changeReverb.wetDryMix = 50
-        audioEngine.attach(changeReverb)
 
         var nodes: [AVAudioNode] = [audioPlayerNode, changePitchRate]
-        if echo { nodes.append(changeEcho) }
-        if reverb { nodes.append(changeReverb) }
+
+        if echo {
+            let changeEcho = AVAudioUnitDistortion()
+            changeEcho.loadFactoryPreset(.multiEcho1)
+            audioEngine.attach(changeEcho)
+
+            nodes.append(changeEcho)
+        }
+
+        if reverb {
+            let changeReverb = AVAudioUnitReverb()
+            changeReverb.loadFactoryPreset(.cathedral)
+            changeReverb.wetDryMix = 50
+            audioEngine.attach(changeReverb)
+
+            nodes.append(changeReverb)
+        }
+
         nodes.append(audioEngine.outputNode)
 
         connectAudioNodes(nodes)
