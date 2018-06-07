@@ -12,7 +12,9 @@ import AVFoundation
 class RecordViewModel: NSObject, AVAudioRecorderDelegate {
     public var isRecording: Bool = false {
         didSet {
-            view?.updateView()
+            if (isRecording != oldValue) {
+                view?.updateView()
+            }
         }
     }
     public var view: RecordViewControllerProtocol?

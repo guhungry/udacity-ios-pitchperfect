@@ -13,20 +13,35 @@ import Hamcrest
 
 class RecordViewModelTests: XCTestCase {
     private var sut: RecordViewModel!
+    private var view: RecordViewControllerMock!
     override func setUp() {
         super.setUp()
         
+        view = RecordViewControllerMock()
         sut = RecordViewModel()
+        sut.view = view
     }
     
     override func tearDown() {
+        sut.view = nil
         sut = nil
+        view = nil
         
         super.tearDown()
     }
     
     func testIsRecording_ShouldBeFalse_AsDefaultValue() {
         assertThat(sut.isRecording == false)
+    }
+    
+    func testViewUpdateView_ShouldBeCalled_WhenIsRecordingChanged() {
+        assertThat(view.updateViewCallCount, equalTo(0))
+        sut.isRecording = true
+        assertThat(view.updateViewCallCount, equalTo(1))
+        sut.isRecording = false
+        assertThat(view.updateViewCallCount, equalTo(2))
+        sut.isRecording = false
+        assertThat(view.updateViewCallCount, equalTo(2))
     }
     
     func testRecordLabel_ShouldBeTabToRecord_WhenIsRecordingIsFalse() {
