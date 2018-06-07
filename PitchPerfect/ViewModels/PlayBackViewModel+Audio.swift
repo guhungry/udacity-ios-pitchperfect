@@ -10,16 +10,13 @@ import Foundation
 import AVFoundation
 
 extension PlayBackViewModel {
+    // MARK: Audio Playback Functions
     func prepareAudio() {
         do {
             audioFile = try AVAudioFile(forReading: soundUrl)
         } catch {
             
         }
-    }
-    
-    func setEffect() {
-        
     }
     
     func playAudio(rate: Float? = nil, pitch: Float? = nil, reverb: Bool = false, echo: Bool = false) {
