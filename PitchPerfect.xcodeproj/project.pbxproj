@@ -64,6 +64,8 @@
 		CC0AB64320C6D9F700524B4C /* PlayBackViewModel+Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0AB64220C6D9F700524B4C /* PlayBackViewModel+Audio.swift */; };
 		CC0AB64520C82CB400524B4C /* PlayProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0AB64420C82CB400524B4C /* PlayProtocols.swift */; };
 		CC0AB64820C8D02B00524B4C /* RecordViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0AB64720C8D02B00524B4C /* RecordViewControllerMock.swift */; };
+		CC0AB64A20C8D70A00524B4C /* PlayBackViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0AB64920C8D70A00524B4C /* PlayBackViewModelTests.swift */; };
+		CC0AB64C20C8D99600524B4C /* PlayViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0AB64B20C8D99600524B4C /* PlayViewControllerMock.swift */; };
 		CC99537E20C5BA3F00E62A0B /* PlayBackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC99537D20C5BA3F00E62A0B /* PlayBackViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -151,6 +153,8 @@
 		CC0AB64220C6D9F700524B4C /* PlayBackViewModel+Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayBackViewModel+Audio.swift"; sourceTree = "<group>"; };
 		CC0AB64420C82CB400524B4C /* PlayProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayProtocols.swift; sourceTree = "<group>"; };
 		CC0AB64720C8D02B00524B4C /* RecordViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewControllerMock.swift; sourceTree = "<group>"; };
+		CC0AB64920C8D70A00524B4C /* PlayBackViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayBackViewModelTests.swift; sourceTree = "<group>"; };
+		CC0AB64B20C8D99600524B4C /* PlayViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewControllerMock.swift; sourceTree = "<group>"; };
 		CC99537D20C5BA3F00E62A0B /* PlayBackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayBackViewModel.swift; sourceTree = "<group>"; };
 		EBB5F9592D769D306E66781B /* Pods-PitchPerfect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PitchPerfect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PitchPerfect/Pods-PitchPerfect.debug.xcconfig"; sourceTree = "<group>"; };
 		EE5D8D7EB90517B5B09BD08D /* Pods-PitchPerfectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PitchPerfectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PitchPerfectUITests/Pods-PitchPerfectUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -244,6 +248,7 @@
 			children = (
 				CC0AB64620C8CFE700524B4C /* Mocks */,
 				CC0AB63B20C680C400524B4C /* RecordViewModelTests.swift */,
+				CC0AB64920C8D70A00524B4C /* PlayBackViewModelTests.swift */,
 				74C844C020C53FDD00300367 /* Info.plist */,
 			);
 			path = PitchPerfectTests;
@@ -327,6 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				CC0AB64720C8D02B00524B4C /* RecordViewControllerMock.swift */,
+				CC0AB64B20C8D99600524B4C /* PlayViewControllerMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -607,7 +613,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC0AB64A20C8D70A00524B4C /* PlayBackViewModelTests.swift in Sources */,
 				CC0AB64820C8D02B00524B4C /* RecordViewControllerMock.swift in Sources */,
+				CC0AB64C20C8D99600524B4C /* PlayViewControllerMock.swift in Sources */,
 				CC0AB63C20C680C400524B4C /* RecordViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

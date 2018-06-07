@@ -13,7 +13,9 @@ class PlayBackViewModel: NSObject, AVAudioPlayerDelegate {
     public enum AudioEffect: Int { case slow = 0, fast, highPitch, lowPitch, echo, reverb }
     public var isPlaying: Bool = false {
         didSet {
-            view.updateView()
+            if isPlaying != oldValue {
+                view.updateView()
+            }
         }
     }
     public var soundUrl: URL!
